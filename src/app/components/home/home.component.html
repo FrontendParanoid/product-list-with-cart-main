@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="desserts">
+      <div class="desserts-title">Desserts</div>
+      <div class="desserts-grid">
+        <div class="dessert-container" *ngFor="let dessert of desserts">
+          <app-dessert [model]="dessert"></app-dessert>
+        </div>
+      </div>
+    </div>
+    <div class="cart">
+      <div class="cart-title">Your Cart</div>
+      <div class="items">Your added items will be displayed here</div>
+    </div>
+  </div>
+</div>

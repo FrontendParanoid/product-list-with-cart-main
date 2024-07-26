@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Redhat";
+  src: url("/fonts/RedHatText-VariableFont_wght.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RedhatBold";
+  src: url("/fonts/static/RedHatText-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RedhatSemiBold";
+  src: url("/fonts/static/RedHatText-SemiBold.ttf") format("truetype");
+}

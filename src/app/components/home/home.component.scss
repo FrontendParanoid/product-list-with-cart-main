@@ -1,0 +1,32 @@
+@import "../../../sass/mixins";
+@import "../../../sass/variables";
+@import "../../../sass/fonts";
+
+@media (min-width: 768px) {
+  .container {
+    @include flex(center, center);
+    background-color: $rose-50;
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+    }
+
+    .desserts-grid {
+      width: 768px;
+      @include grid(auto, 3, 0px);
+      row-gap: 20px;
+    }
+
+    .desserts-title {
+      font-size: 30px;
+      font-family: "RedhatBold";
+
+      margin-bottom: 20px;
+    }
+
+    .dessert-container {
+      width: 200px;
+    }
+  }
+}

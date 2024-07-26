@@ -1,0 +1,16 @@
+<div class="dessert">
+  <div class="dessert-img">
+    <img [src]="model.image.desktop" />
+    <div class="add-cart">
+      <button type="button" class="add-cart-button">
+        <img class="add-cart-icon" src="/images/icon-add-to-cart.svg" /> Add to
+        Cart
+      </button>
+    </div>
+  </div>
+  <div class="content">
+    <span class="dessert-category">{{ model.category }}</span>
+    <h4 class="dessert-name">{{ model.name }}</h4>
+    <p class="dessert-price">{{ formattedPrice }}</p>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+@import "../../../sass/variables";
+@import "../../../sass/mixins";
+
+@media (min-width: 768px) {
+  .dessert {
+    width: 250px;
+    .dessert-img {
+      width: 15rem;
+      border-radius: 5px;
+      margin: 0 auto;
+
+      position: relative;
+
+      img {
+        width: 15rem;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .add-cart {
+        @include flex(center, center);
+        position: absolute;
+        bottom: 0px;
+        right: 50%;
+        transform: translate(50%, 50%);
+
+        .add-cart-button {
+          padding: 10px;
+          border-radius: 40px;
+          width: 175px;
+          border: 1px solid $rose-900;
+
+          font-family: "RedhatSemiBold";
+          background-color: $rose-50;
+          @include flex(center, center);
+
+          .add-cart-icon {
+            width: 2rem;
+          }
+        }
+      }
+    }
+
+    .content {
+      margin-top: 40px;
+
+      .dessert-name {
+        font-size: 16px;
+        color: $rose-900;
+      }
+
+      .dessert-category {
+        color: $rose-400;
+        font-size: 14px;
+      }
+
+      .dessert-price {
+        color: $red;
+        font-family: "RedhatSemiBold";
+        font-size: 14px;
+      }
+    }
+  }
+}
