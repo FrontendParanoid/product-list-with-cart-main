@@ -1,1 +1,11 @@
-<p>cart works!</p>
+<div class="container">
+  <div class="title">
+    <h1>Your Cart</h1>
+  </div>
+  <div class="added-items">
+    <div *ngIf="noItems">
+      <img src="/images/illustration-empty-cart.svg" alt="icon" />
+      <p>Your added items will be here</p>
+    </div>
+  </div>
+</div>

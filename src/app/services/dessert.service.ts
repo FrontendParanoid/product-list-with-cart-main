@@ -8,9 +8,7 @@ export class DessertService implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.desserts);
-  }
+  ngOnInit() {}
 
   get desserts() {
     return this._desserts;
@@ -34,8 +32,6 @@ export class DessertService implements OnInit {
       };
       this.desserts.push(model);
     });
-
-    console.log(this.desserts);
 
     return this.desserts;
   }

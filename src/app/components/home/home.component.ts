@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { DessertComponent } from '../dessert/dessert.component';
 import { Dessert } from '../../models/dessert.model';
 import { DessertService } from '../../services/dessert.service';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DessertComponent],
+  imports: [CommonModule, DessertComponent, CartComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
