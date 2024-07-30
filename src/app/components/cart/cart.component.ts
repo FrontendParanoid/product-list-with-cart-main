@@ -10,4 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent {
   noItems: boolean = true;
+  selectedItems: number = 0;
 }

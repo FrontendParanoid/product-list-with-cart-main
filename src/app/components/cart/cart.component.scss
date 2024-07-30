@@ -1,0 +1,32 @@
+@import "../../../sass/fonts";
+@import "../../../sass/mixins";
+@import "../../../sass/variables";
+@import "../../../sass/others";
+
+@media (min-width: 768px) {
+  .container {
+    background-color: $rose-50;
+    padding: 35px 25px;
+    border-radius: 5px;
+    .title {
+      margin-bottom: 25px;
+      h1 {
+        color: $red;
+        font-family: "RedhatSemiBold";
+        font-size: 24px;
+      }
+    }
+    .added-items {
+      text-align: center;
+
+      img {
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: $rose-400;
+        font-family: "RedhatSemiBold";
+      }
+    }
+  }
+}

@@ -5,11 +5,11 @@
 @media (min-width: 768px) {
   .container {
     @include flex(center, center);
-    background-color: $rose-50;
+    background-color: $rose-100;
 
     .wrapper {
       display: grid;
-      grid-template-columns: 4fr 1fr;
+      grid-template-columns: 5fr 2fr;
     }
 
     .desserts-grid {
