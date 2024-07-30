@@ -8,7 +8,6 @@
       width: 15rem;
       border-radius: 5px;
       margin: 0 auto;
-
       position: relative;
 
       img {
@@ -36,6 +35,36 @@
 
           .add-cart-icon {
             width: 2rem;
+          }
+        }
+
+        .pick-form {
+          padding: 10px;
+          border-radius: 40px;
+          width: 175px;
+          border: 1px solid $rose-900;
+
+          font-family: "RedhatSemiBold";
+          background-color: $red;
+          color: white;
+
+          @include flex(space-between, center);
+
+          button {
+            color: white;
+            font-size: 20px;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 30px;
+
+            @include flex(center, center);
+
+            &:hover {
+              background-color: white;
+              color: $red;
+              cursor: pointer;
+            }
           }
         }
       }

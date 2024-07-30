@@ -2,10 +2,20 @@
   <div class="dessert-img">
     <img [src]="model.image.desktop" />
     <div class="add-cart">
-      <button type="button" class="add-cart-button">
+      <button
+        *ngIf="chosen === false"
+        (click)="PickItem()"
+        type="button"
+        class="add-cart-button"
+      >
         <img class="add-cart-icon" src="/images/icon-add-to-cart.svg" /> Add to
         Cart
       </button>
+      <form class="pick-form" *ngIf="chosen === true">
+        <button type="button" (click)="Decrease()">-</button>
+        {{ nbItem }}
+        <button type="button" (click)="Increase()">+</button>
+      </form>
     </div>
   </div>
   <div class="content">
