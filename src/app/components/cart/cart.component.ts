@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Changes } from '../../models/changes.model';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +15,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
-export class CartComponent {
-  noItems: boolean = true;
-  selectedItems: number = 0;
+export class CartComponent implements OnInit {
+  @Input() changes: Changes[] = [];
+
+  constructor() {}
+
+  ngOnInit() {}
 }

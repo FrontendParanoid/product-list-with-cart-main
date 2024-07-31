@@ -1,11 +1,17 @@
 <div class="container">
   <div class="title">
-    <h1>Your Cart ({{ selectedItems }})</h1>
+    <!-- Need to make it not length but sum of all quantities -->
+    <h1>Your Cart ({{ changes.length }})</h1>
   </div>
   <div class="added-items">
-    <div *ngIf="noItems">
+    <div *ngIf="changes.length === 0">
       <img src="/images/illustration-empty-cart.svg" alt="icon" />
       <p>Your added items will be here</p>
+    </div>
+    <div *ngIf="changes.length > 0">
+      <div class="item" *ngFor="let item of changes">
+        {{ item.model.name }}
+      </div>
     </div>
   </div>
 </div>

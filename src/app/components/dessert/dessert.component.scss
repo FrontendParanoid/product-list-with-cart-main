@@ -4,6 +4,7 @@
 @media (min-width: 768px) {
   .dessert {
     width: 250px;
+
     .dessert-img {
       width: 15rem;
       border-radius: 5px;
@@ -35,6 +36,12 @@
 
           .add-cart-icon {
             width: 2rem;
+          }
+
+          &:hover {
+            border: 1px solid $red;
+            cursor: pointer;
+            color: $red;
           }
         }
 

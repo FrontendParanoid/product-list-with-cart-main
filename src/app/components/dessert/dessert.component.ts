@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Dessert } from '../../models/dessert.model';
 import { FormatPrice } from '../../utilities/FormatPrice';
 import { CommonModule } from '@angular/common';
+import { Changes } from '../../models/changes.model';
 
 @Component({
   selector: 'app-dessert',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DessertComponent implements OnInit {
   @Input() model!: Dessert;
+  @Output() itemEvent = new EventEmitter<Changes>();
   formattedPrice: string | null = null;
   chosen: boolean = false;
   nbItem: number = 0;
@@ -23,28 +25,27 @@ export class DessertComponent implements OnInit {
   }
 
   PickItem() {
-    if (this.chosen === false && this.nbItem === 0) {
-      this.chosen = true;
-      this.nbItem++;
-      return;
-    }
-    if (this.nbItem === 0) {
-      this.chosen = false;
-      return;
-    }
+    this.chosen = true;
+    this.nbItem++;
+
+    const changes: Changes = { model: this.model, quantity: this.nbItem };
+    this.itemEvent.emit(changes);
   }
 
   Increase() {
     this.nbItem++;
-    if (this.nbItem === 0) {
-      this.PickItem();
-    }
+    const changes: Changes = { model: this.model, quantity: this.nbItem };
+    this.itemEvent.emit(changes);
   }
 
   Decrease() {
     this.nbItem--;
+    const changes: Changes = { model: this.model, quantity: this.nbItem };
+    this.itemEvent.emit(changes);
+
     if (this.nbItem === 0) {
-      this.PickItem();
+      this.chosen = false;
+      return;
     }
   }
 }

@@ -4,12 +4,15 @@
       <div class="desserts-title">Desserts</div>
       <div class="desserts-grid">
         <div class="dessert-container" *ngFor="let dessert of desserts">
-          <app-dessert [model]="dessert"></app-dessert>
+          <app-dessert
+            (itemEvent)="SendToCart($event)"
+            [model]="dessert"
+          ></app-dessert>
         </div>
       </div>
     </div>
     <div class="cart">
-      <app-cart></app-cart>
+      <app-cart [changes]="changes"></app-cart>
     </div>
   </div>
 </div>
