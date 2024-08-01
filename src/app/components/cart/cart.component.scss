@@ -22,10 +22,36 @@
       img {
         margin-bottom: 20px;
       }
-
       p {
-        color: $rose-400;
+        text-align: left;
+        color: $rose-900;
         font-family: "RedhatSemiBold";
+      }
+
+      .item {
+        .item-name {
+          margin-bottom: 5px;
+        }
+
+        @include flex(space-between, start);
+        margin-bottom: 15px;
+        .about-price {
+          @include flex(start, center);
+          font-size: 13px;
+
+          .curr-quantity {
+            color: $red;
+            font-size: 13px;
+            margin-right: 5px;
+          }
+          .one-price {
+            color: $rose-300;
+            margin-right: 5px;
+          }
+          .total-price {
+            color: $rose-400;
+          }
+        }
       }
     }
   }

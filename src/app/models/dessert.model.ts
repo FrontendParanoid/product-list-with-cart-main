@@ -5,6 +5,6 @@ import { Image } from './image.model';
 export interface Dessert {
   name: string;
   category: string;
-  price: number;
+  price: string;
   image: Image;
 }

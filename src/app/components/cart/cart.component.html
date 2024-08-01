@@ -10,7 +10,19 @@
     </div>
     <div *ngIf="changes.length > 0">
       <div class="item" *ngFor="let item of changes">
-        {{ item.model.name }}
+        <div>
+          <div class="item-name">
+            <p>{{ item.model.name }}</p>
+          </div>
+          <div class="about-price">
+            <p class="curr-quantity">{{ item.quantity }}x</p>
+            <p class="one-price">&#64;{{ item.model.price }}</p>
+            <p class="total-price">{{ item.total }}</p>
+          </div>
+        </div>
+        <div class="remove-icon">
+          <img src="/images/icon-increment-quantity.svg" alt="increment" />
+        </div>
       </div>
     </div>
   </div>

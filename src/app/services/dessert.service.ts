@@ -21,7 +21,7 @@ export class DessertService implements OnInit {
     data.forEach((d) => {
       const model: Dessert = {
         name: d.name,
-        price: d.price,
+        price: d.price.toString(),
         category: d.category,
         image: {
           thumbnail: d.image.thumbnail,

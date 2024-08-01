@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Changes } from '../../models/changes.model';
+import { FormatPrice } from '../../utilities/FormatPrice';
 
 @Component({
   selector: 'app-cart',

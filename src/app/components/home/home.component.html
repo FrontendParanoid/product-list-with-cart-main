@@ -6,6 +6,7 @@
         <div class="dessert-container" *ngFor="let dessert of desserts">
           <app-dessert
             (itemEvent)="SendToCart($event)"
+            (deleteItemEvent)="RemoveFromCart($event)"
             [model]="dessert"
           ></app-dessert>
         </div>
