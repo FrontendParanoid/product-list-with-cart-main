@@ -1,16 +1,18 @@
 <div class="container">
   <div class="title">
     <!-- Need to make it not length but sum of all quantities -->
-    <h1>Your Cart ({{ changes.length }})</h1>
+    <h1>Your Cart ({{ CountItems() }})</h1>
   </div>
   <div class="added-items">
     <div *ngIf="changes.length === 0">
       <img src="/images/illustration-empty-cart.svg" alt="icon" />
-      <p>Your added items will be here</p>
+      <p [ngStyle]="{ 'text-align': 'center' }">
+        Your added items will be here
+      </p>
     </div>
     <div *ngIf="changes.length > 0">
       <div class="item" *ngFor="let item of changes">
-        <div>
+        <div class="item-about">
           <div class="item-name">
             <p>{{ item.model.name }}</p>
           </div>
@@ -20,9 +22,24 @@
             <p class="total-price">{{ item.total }}</p>
           </div>
         </div>
-        <div class="remove-icon">
-          <img src="/images/icon-increment-quantity.svg" alt="increment" />
+        <div class="item-interaction">
+          <img src="/images/icon-remove-item.svg" (click)="RemoveItem(item)" />
         </div>
+      </div>
+      <div class="order-total">
+        <p class="order-label">Order Total</p>
+        <p class="order-value">${{ CountTotal() }}</p>
+      </div>
+      <div class="reminder">
+        <div class="reminder-icon">
+          <img src="/images/icon-carbon-neutral.svg" />
+        </div>
+        <p>
+          This is a <span class="reminder-info">carbon-neutral</span> delivery
+        </p>
+      </div>
+      <div class="confirm-btn">
+        <button type="button">Confirm Order</button>
       </div>
     </div>
   </div>

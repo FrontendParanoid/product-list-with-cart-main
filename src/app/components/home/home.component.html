@@ -13,7 +13,10 @@
       </div>
     </div>
     <div class="cart">
-      <app-cart [changes]="changes"></app-cart>
+      <app-cart
+        [changes]="changes"
+        (changedSync)="RemoveFromCart($event)"
+      ></app-cart>
     </div>
   </div>
 </div>

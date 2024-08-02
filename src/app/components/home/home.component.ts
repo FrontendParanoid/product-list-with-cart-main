@@ -17,6 +17,7 @@ import { FormatPrice } from '../../utilities/FormatPrice';
 export class HomeComponent implements OnInit {
   desserts: Dessert[] = [];
   changes: Changes[] = [];
+  removedItem!: string;
 
   constructor(private dessertService: DessertService) {}
 
@@ -43,5 +44,6 @@ export class HomeComponent implements OnInit {
     if (itemIndex != -1) {
       this.changes.splice(itemIndex, 1);
     }
+    this.removedItem = name;
   }
 }
