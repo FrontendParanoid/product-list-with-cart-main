@@ -56,10 +56,10 @@
             transform: translateY(50%);
 
             &:hover {
-              border: 1px solid $rose-900;
-              color: $rose-900;
-              filter: invert(4%) sepia(84%) saturate(1866%) hue-rotate(3deg)
-                brightness(92%) contrast(94%);
+              border: 1px solid black;
+              filter: brightness(0) saturate(100%) invert(0%) sepia(96%)
+                saturate(7480%) hue-rotate(296deg) brightness(101%)
+                contrast(101%);
             }
           }
         }

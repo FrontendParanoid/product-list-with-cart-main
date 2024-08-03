@@ -1,11 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, model, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  model,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { DessertComponent } from '../dessert/dessert.component';
 import { Dessert } from '../../models/dessert.model';
 import { DessertService } from '../../services/dessert.service';
 import { CartComponent } from '../cart/cart.component';
 import { Changes } from '../../models/changes.model';
 import { FormatPrice } from '../../utilities/FormatPrice';
+import { EventDetectionService } from '../../services/Interface/EventDetection.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +27,8 @@ export class HomeComponent implements OnInit {
   desserts: Dessert[] = [];
   changes: Changes[] = [];
   removedItem!: string;
+
+  temp: string = '';
 
   constructor(private dessertService: DessertService) {}
 

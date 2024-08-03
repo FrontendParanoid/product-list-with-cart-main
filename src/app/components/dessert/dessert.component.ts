@@ -1,8 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Dessert } from '../../models/dessert.model';
 import { FormatPrice } from '../../utilities/FormatPrice';
 import { CommonModule } from '@angular/common';
 import { Changes } from '../../models/changes.model';
+import { EventDetectionService } from '../../services/Interface/EventDetection.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dessert',
@@ -11,7 +22,7 @@ import { Changes } from '../../models/changes.model';
   templateUrl: './dessert.component.html',
   styleUrl: './dessert.component.scss',
 })
-export class DessertComponent implements OnInit {
+export class DessertComponent implements OnInit, OnDestroy {
   @Input() model!: Dessert;
   @Output() itemEvent = new EventEmitter<Changes>();
   @Output() deleteItemEvent = new EventEmitter<string>();
@@ -19,12 +30,27 @@ export class DessertComponent implements OnInit {
   chosen: boolean = false;
   nbItem: number = 0;
 
-  constructor() {}
+  subscription = new Subscription();
+
+  constructor(private eventDetectionService: EventDetectionService) {}
 
   ngOnInit() {
     const price = parseInt(this.model.price);
     this.formattedPrice = FormatPrice(price);
     this.model.price = FormatPrice(price);
+
+    this.subscription = this.eventDetectionService.eventSubject.subscribe(
+      (name) => {
+        console.log('Received!');
+        if (this.model.name === name) {
+          this.chosen = false;
+        }
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   PickItem() {

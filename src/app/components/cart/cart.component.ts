@@ -10,6 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { Changes } from '../../models/changes.model';
 import { FormatPrice } from '../../utilities/FormatPrice';
+import { EventDetectionService } from '../../services/Interface/EventDetection.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,8 +21,7 @@ import { FormatPrice } from '../../utilities/FormatPrice';
 })
 export class CartComponent implements OnInit {
   @Input() changes: Changes[] = [];
-  @Output() changedSync: EventEmitter<any> = new EventEmitter();
-  constructor() {}
+  constructor(private eventDetectionService: EventDetectionService) {}
 
   ngOnInit() {}
 
@@ -44,6 +44,6 @@ export class CartComponent implements OnInit {
   RemoveItem(item: Changes) {
     const index = this.changes.findIndex((c) => c === item);
     this.changes.splice(index, 1);
-    this.changedSync.emit(item.model.name);
+    this.eventDetectionService.eventSubject.next(item.model.name);
   }
 }
