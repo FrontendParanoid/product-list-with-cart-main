@@ -12,9 +12,13 @@
         Cart
       </button>
       <form class="pick-form" *ngIf="chosen === true">
-        <button type="button" (click)="Decrease()">-</button>
+        <button class="decrease-btn" type="button" (click)="Decrease()">
+          <img src="/images/icon-decrement-quantity.svg" />
+        </button>
         {{ nbItem }}
-        <button type="button" (click)="Increase()">+</button>
+        <button class="increase-btn" type="button" (click)="Increase()">
+          <img src="/images/icon-increment-quantity.svg" />
+        </button>
       </form>
     </div>
   </div>

@@ -13,7 +13,21 @@
       </div>
     </div>
     <div class="cart">
-      <app-cart [changes]="changes"></app-cart>
+      <app-cart
+        [changes]="changes"
+        (confirmedOrder)="confirmedOrder = true"
+      ></app-cart>
     </div>
   </div>
 </div>
+<div
+  class="overlay"
+  (click)="confirmedOrder = false"
+  *ngIf="confirmedOrder"
+></div>
+<app-confirm-order
+  [items]="changes"
+  class="confirm-order"
+  *ngIf="confirmedOrder"
+  (backEvent)="Reset($event)"
+></app-confirm-order>

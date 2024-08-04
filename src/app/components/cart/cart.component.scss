@@ -130,7 +130,7 @@
 
           &:hover {
             cursor: pointer;
-            background-color: hsla(14, 88%, 31%, 0.9);
+            background: darken($red, 10%);
           }
         }
       }

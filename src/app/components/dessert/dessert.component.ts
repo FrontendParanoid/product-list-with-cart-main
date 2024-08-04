@@ -41,7 +41,6 @@ export class DessertComponent implements OnInit, OnDestroy {
 
     this.subscription = this.eventDetectionService.eventSubject.subscribe(
       (name) => {
-        console.log('Received!');
         if (this.model.name === name) {
           this.chosen = false;
         }

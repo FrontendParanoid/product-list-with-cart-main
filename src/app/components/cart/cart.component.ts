@@ -21,6 +21,7 @@ import { EventDetectionService } from '../../services/Interface/EventDetection.s
 })
 export class CartComponent implements OnInit {
   @Input() changes: Changes[] = [];
+  @Output() confirmedOrder = new EventEmitter();
   constructor(private eventDetectionService: EventDetectionService) {}
 
   ngOnInit() {}
@@ -45,5 +46,10 @@ export class CartComponent implements OnInit {
     const index = this.changes.findIndex((c) => c === item);
     this.changes.splice(index, 1);
     this.eventDetectionService.eventSubject.next(item.model.name);
+  }
+
+  Confirm() {
+    this.eventDetectionService.orderSubject.next(this.changes);
+    this.confirmedOrder.emit(true);
   }
 }

@@ -7,6 +7,9 @@
     @include flex(center, center);
     background-color: $rose-100;
 
+    position: relative;
+    z-index: 0;
+
     .wrapper {
       display: grid;
       grid-template-columns: 5fr 2fr;
@@ -28,5 +31,26 @@
     .dessert-container {
       width: 200px;
     }
+  }
+
+  .confirm-order {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    border-radius: 5px;
+
+    background-color: $rose-50;
+    z-index: 9999;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }

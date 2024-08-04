@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="title">
+      <img src="/images/icon-order-confirmed.svg" />
+      <h1>Order Confirmed</h1>
+      <p>We hope you enjoyed your food!</p>
+    </div>
+    <div class="items">
+      <div class="item" *ngFor="let item of items">
+        <div class="item-image">
+          <img [src]="item.model.image.desktop" />
+        </div>
+        <div class="item-description">
+          <div class="left-side">
+            <p class="name">{{ item.model.name }}</p>
+            <div class="extra-info">
+              <p class="quantity">{{ item.quantity }}x</p>
+              <p class="price">&#64;{{ item.model.price }}</p>
+            </div>
+          </div>
+          <div class="right-side">
+            <p>{{ item.total }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="order-total">
+        <p class="total-label">Order Total</p>
+        <p class="total">{{ CountTotal() }}</p>
+      </div>
+    </div>
+    <button class="start-btn" (click)="Done()">Start New Order</button>
+  </div>
+</div>

@@ -15,11 +15,17 @@ import { Changes } from '../../models/changes.model';
 import { FormatPrice } from '../../utilities/FormatPrice';
 import { EventDetectionService } from '../../services/Interface/EventDetection.service';
 import { Subscription } from 'rxjs';
+import { ConfirmOrderComponent } from '../confirm-order/confirm-order.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DessertComponent, CartComponent],
+  imports: [
+    CommonModule,
+    DessertComponent,
+    CartComponent,
+    ConfirmOrderComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -27,6 +33,7 @@ export class HomeComponent implements OnInit {
   desserts: Dessert[] = [];
   changes: Changes[] = [];
   removedItem!: string;
+  confirmedOrder: boolean = false;
 
   temp: string = '';
 
@@ -56,5 +63,10 @@ export class HomeComponent implements OnInit {
       this.changes.splice(itemIndex, 1);
     }
     this.removedItem = name;
+  }
+
+  Reset(res: boolean) {
+    this.confirmedOrder = res;
+    window.location.reload();
   }
 }

@@ -57,20 +57,31 @@
 
           @include flex(space-between, center);
 
-          button {
+          .increase-btn,
+          .decrease-btn {
             color: white;
             font-size: 20px;
             background-color: transparent;
             border: 1px solid white;
             border-radius: 50%;
             width: 30px;
-
+            height: 25px;
             @include flex(center, center);
 
             &:hover {
               background-color: white;
               color: $red;
               cursor: pointer;
+
+              img {
+                filter: brightness(0) saturate(100%) invert(24%) sepia(68%)
+                  saturate(2249%) hue-rotate(355deg) brightness(99%)
+                  contrast(96%);
+              }
+            }
+
+            img {
+              width: 0.75rem;
             }
           }
         }
