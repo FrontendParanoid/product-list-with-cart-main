@@ -2,7 +2,7 @@
 @import "../../../sass/variables";
 @import "../../../sass/fonts";
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .container {
     @include flex(center, center);
     background-color: $rose-100;
@@ -13,6 +13,7 @@
     .wrapper {
       display: grid;
       grid-template-columns: 5fr 2fr;
+      padding: 50px 25px;
     }
 
     .desserts-grid {
@@ -24,6 +25,7 @@
     .desserts-title {
       font-size: 30px;
       font-family: "RedhatBold";
+      color: $rose-900;
 
       margin-bottom: 20px;
     }
@@ -38,6 +40,55 @@
     right: 50%;
     top: 50%;
     transform: translate(50%, -50%);
+    border-radius: 5px;
+
+    background-color: $rose-50;
+    z-index: 9999;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@media (min-width: 300px) {
+  .container {
+    @include flex(center, center);
+    background-color: $rose-100;
+
+    position: relative;
+    z-index: 0;
+
+    .wrapper {
+      display: grid;
+      padding: 20px 20px;
+    }
+
+    .desserts-grid {
+      width: 100%;
+    }
+
+    .desserts-title {
+      font-size: 30px;
+      font-family: "RedhatBold";
+      color: $rose-900;
+
+      margin-bottom: 20px;
+    }
+
+    .dessert-container {
+      width: 100%;
+    }
+  }
+
+  .confirm-order {
+    position: fixed;
+    bottom: 0px;
     border-radius: 5px;
 
     background-color: $rose-50;

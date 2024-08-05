@@ -29,8 +29,10 @@ export class DessertComponent implements OnInit, OnDestroy {
   formattedPrice: string | null = null;
   chosen: boolean = false;
   nbItem: number = 0;
+  isSelected: boolean = false;
 
-  subscription = new Subscription();
+  deleteSubscription = new Subscription();
+  orderSubscription = new Subscription();
 
   constructor(private eventDetectionService: EventDetectionService) {}
 
@@ -39,17 +41,26 @@ export class DessertComponent implements OnInit, OnDestroy {
     this.formattedPrice = FormatPrice(price);
     this.model.price = FormatPrice(price);
 
-    this.subscription = this.eventDetectionService.eventSubject.subscribe(
+    this.deleteSubscription = this.eventDetectionService.eventSubject.subscribe(
       (name) => {
         if (this.model.name === name) {
           this.chosen = false;
+          this.isSelected = false;
+        }
+      }
+    );
+    this.orderSubscription = this.eventDetectionService.orderSubject.subscribe(
+      (changes: Changes[]) => {
+        if (changes.find((c) => c.model.name === this.model.name)) {
+          this.isSelected = true;
         }
       }
     );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.deleteSubscription.unsubscribe();
+    this.orderSubscription.unsubscribe();
   }
 
   PickItem() {

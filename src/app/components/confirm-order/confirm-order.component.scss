@@ -2,102 +2,208 @@
 @import "../../../sass/others";
 @import "../../../sass/variables";
 
-.container {
-  @include flex(center, center);
-  height: 100%;
-  width: 450px;
+@media (min-width: 768px) {
+  .container {
+    @include flex(center, center);
+    height: 100%;
+    width: 450px;
 
-  .wrapper {
-    padding: 30px;
-    width: 100%;
+    .wrapper {
+      padding: 30px;
+      width: 100%;
 
-    .title {
-      img {
-        margin-bottom: 10px;
-        width: 2rem;
-      }
-      h1 {
-        font-family: "RedhatSemiBold";
-      }
-      p {
-        color: $rose-400;
-      }
-    }
-
-    .items {
-      background-color: $rose-100;
-      padding: 10px;
-
-      .item {
-        @include flex(start, center);
-        margin-top: 10px;
-
-        .item-image {
-          width: 3rem;
-          border-radius: 6px;
-          margin: 0px 20px 0px 0px;
-          img {
-            width: 3rem;
-            border-radius: 6px;
-          }
+      .title {
+        img {
+          margin-bottom: 10px;
+          width: 2rem;
         }
-
-        .item-description {
-          @include flex(space-between, center);
-          width: 100%;
-
-          .left-side {
-            .name {
-              color: $rose-900;
-              font-weight: $weight2;
-              font-family: 12px;
-            }
-
-            .extra-info {
-              @include flex(start, center);
-              .quantity {
-                color: $red;
-                font-weight: $weight2;
-              }
-              .price {
-                color: $rose-300;
-                margin-left: 15px;
-              }
-            }
-          }
-
-          .right-side {
-            margin-right: 10px;
-            font-weight: $weight2;
-          }
-        }
-      }
-      .order-total {
-        @include flex(space-between, center);
-        margin-top: 20px;
-        padding: 10px;
-        .total-label {
-          color: $rose-400;
-          font-size: 14px;
-          font-weight: $weight1;
-        }
-        .total {
-          font-size: 20px;
+        h1 {
           font-family: "RedhatSemiBold";
         }
+        p {
+          color: $rose-400;
+        }
+      }
+
+      .items {
+        background-color: $rose-100;
+        padding: 10px;
+
+        .item {
+          @include flex(start, center);
+          margin-top: 10px;
+
+          .item-image {
+            width: 3rem;
+            border-radius: 6px;
+            margin: 0px 20px 0px 0px;
+            img {
+              width: 3rem;
+              border-radius: 6px;
+            }
+          }
+
+          .item-description {
+            @include flex(space-between, center);
+            width: 100%;
+
+            .left-side {
+              .name {
+                color: $rose-900;
+                font-weight: $weight2;
+                font-family: 12px;
+              }
+
+              .extra-info {
+                @include flex(start, center);
+                .quantity {
+                  color: $red;
+                  font-weight: $weight2;
+                }
+                .price {
+                  color: $rose-300;
+                  margin-left: 15px;
+                }
+              }
+            }
+
+            .right-side {
+              margin-right: 10px;
+              font-weight: $weight2;
+            }
+          }
+        }
+        .order-total {
+          @include flex(space-between, center);
+          margin-top: 20px;
+          padding: 10px;
+          .total-label {
+            color: $rose-400;
+            font-size: 14px;
+            font-weight: $weight1;
+          }
+          .total {
+            font-size: 20px;
+            font-family: "RedhatSemiBold";
+          }
+        }
+      }
+      .start-btn {
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 30px;
+        background-color: $red;
+        padding: 15px;
+        color: $rose-50;
+
+        &:hover {
+          cursor: pointer;
+          background: darken($red, 10%);
+        }
       }
     }
-    .start-btn {
-      margin-top: 10px;
-      width: 100%;
-      border-radius: 30px;
-      background-color: $red;
-      padding: 15px;
-      color: $rose-50;
+  }
+}
 
-      &:hover {
-        cursor: pointer;
-        background: darken($red, 10%);
+@media (min-width: 300px) {
+  .container {
+    @include flex(center, center);
+    height: 100%;
+    width: 100%;
+
+    .wrapper {
+      padding: 30px;
+      width: 100%;
+
+      .title {
+        margin-bottom: 40px;
+        img {
+          margin-bottom: 10px;
+          width: 2rem;
+        }
+        h1 {
+          font-family: "RedhatSemiBold";
+        }
+        p {
+          color: $rose-400;
+        }
+      }
+
+      .items {
+        background-color: $rose-100;
+        padding: 10px;
+
+        .item {
+          @include flex(start, center);
+          margin-top: 10px;
+
+          .item-image {
+            width: 3rem;
+            border-radius: 6px;
+            margin: 0px 20px 0px 0px;
+            img {
+              width: 3rem;
+              border-radius: 6px;
+            }
+          }
+
+          .item-description {
+            @include flex(space-between, center);
+            width: 100%;
+
+            .left-side {
+              .name {
+                color: $rose-900;
+                font-weight: $weight2;
+                font-family: 12px;
+              }
+
+              .extra-info {
+                @include flex(start, center);
+                .quantity {
+                  color: $red;
+                  font-weight: $weight2;
+                }
+                .price {
+                  color: $rose-300;
+                  margin-left: 15px;
+                }
+              }
+            }
+
+            .right-side {
+              margin-right: 10px;
+              font-weight: $weight2;
+            }
+          }
+        }
+        .order-total {
+          @include flex(space-between, center);
+          margin-top: 20px;
+          padding: 10px;
+          .total-label {
+            color: $rose-400;
+            font-size: 14px;
+            font-weight: $weight1;
+          }
+          .total {
+            font-size: 20px;
+            font-family: "RedhatSemiBold";
+          }
+        }
+      }
+      .start-btn {
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 30px;
+        background-color: $red;
+        padding: 15px;
+        color: $rose-50;
+
+        &:hover {
+          cursor: pointer;
+          background: darken($red, 10%);
+        }
       }
     }
   }

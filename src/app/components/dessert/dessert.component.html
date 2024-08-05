@@ -1,6 +1,6 @@
 <div class="dessert">
   <div class="dessert-img">
-    <img [src]="model.image.desktop" />
+    <img [src]="model.image.desktop" [ngClass]="{ selected: isSelected }" />
     <div class="add-cart">
       <button
         *ngIf="chosen === false"

@@ -1,7 +1,7 @@
 @import "../../../sass/variables";
 @import "../../../sass/mixins";
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   .dessert {
     width: 250px;
 
@@ -107,5 +107,121 @@
         font-size: 14px;
       }
     }
+  }
+  .selected {
+    border: 3px solid $red;
+    border-radius: 10px;
+  }
+}
+@media (min-width: 300px) {
+  .dessert {
+    width: 100%;
+
+    .dessert-img {
+      width: 90%;
+      border-radius: 5px;
+      margin: 0 auto;
+      position: relative;
+
+      img {
+        width: 90%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .add-cart {
+        @include flex(center, center);
+        position: absolute;
+        bottom: 0px;
+        right: 50%;
+        transform: translate(50%, 50%);
+
+        .add-cart-button {
+          padding: 10px;
+          border-radius: 40px;
+          width: 150px;
+          border: 1px solid $rose-900;
+
+          font-family: "RedhatSemiBold";
+          background-color: $rose-50;
+          @include flex(center, center);
+
+          .add-cart-icon {
+            width: 2rem;
+          }
+
+          &:hover {
+            border: 1px solid $red;
+            cursor: pointer;
+            color: $red;
+          }
+        }
+
+        .pick-form {
+          padding: 10px;
+          border-radius: 40px;
+          width: 175px;
+          border: 1px solid $rose-900;
+
+          font-family: "RedhatSemiBold";
+          background-color: $red;
+          color: white;
+
+          @include flex(space-between, center);
+
+          .increase-btn,
+          .decrease-btn {
+            color: white;
+            font-size: 20px;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 30px;
+            height: 25px;
+            @include flex(center, center);
+
+            &:hover {
+              background-color: white;
+              color: $red;
+              cursor: pointer;
+
+              img {
+                filter: brightness(0) saturate(100%) invert(24%) sepia(68%)
+                  saturate(2249%) hue-rotate(355deg) brightness(99%)
+                  contrast(96%);
+              }
+            }
+
+            img {
+              width: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+
+    .content {
+      margin: 30px 0px 20px 20px;
+
+      .dessert-name {
+        font-size: 16px;
+        color: $rose-900;
+      }
+
+      .dessert-category {
+        color: $rose-400;
+        font-size: 14px;
+      }
+
+      .dessert-price {
+        color: $red;
+        font-family: "RedhatSemiBold";
+        font-size: 14px;
+      }
+    }
+  }
+  .selected {
+    border: 3px solid $red;
+    border-radius: 10px;
   }
 }
